@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloque les pages utilitaires non destinees a l'indexation
+Disallow: /START.html
+Disallow: /tests.html
+
+Sitemap: /sitemap.xml

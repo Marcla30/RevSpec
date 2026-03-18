@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RevSpec – Comparateur de performances automobiles</title>
+  <meta name="description" content="RevSpec : comparez les 0-100, puissance et vitesse max des meilleures sportives. Fiches techniques et historique des versions BMW M, Audi RS, Nissan GT-R.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RevSpec">
+  <meta property="og:title" content="RevSpec – Comparateur de performances automobiles">
+  <meta property="og:description" content="Comparez les 0-100, puissance et vitesse max des meilleures sportives. Historique complet de chaque modèle.">
+  <meta property="og:url" content="/index.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">🏁 RevSpec</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#hero" class="active">Accueil</a></li>
+        <li><a href="#cars">Voitures</a></li>
+        <li><a href="#comparator">Comparateur</a></li>
+      </ul>
+      <button id="dark-mode-toggle" aria-label="Toggle dark mode"><svg class="toggle-icon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><circle class="sun-icon" cx="12" cy="12" r="5" opacity="0"/><path class="sun-rays" d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0"/><path class="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" opacity="1"/></svg></button>
+      <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="hero-slider"></div>
+  </section>
+
+  <section id="cars">
+    <h1>Collection de voitures sportives</h1>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="🔍 Rechercher une voiture ou marque...">
+    </div>
+    <div class="filters">
+      <select id="filter-power">
+        <option value="">Puissance (ch)</option>
+        <option value="0-300">0 - 300 ch</option>
+        <option value="300-400">300 - 400 ch</option>
+        <option value="400-500">400 - 500 ch</option>
+        <option value="500+">500+ ch</option>
+      </select>
+      <select id="filter-weight">
+        <option value="">Poids (kg)</option>
+        <option value="0-1500">0 - 1500 kg</option>
+        <option value="1500-1700">1500 - 1700 kg</option>
+        <option value="1700-1900">1700 - 1900 kg</option>
+        <option value="1900+">1900+ kg</option>
+      </select>
+      <select id="filter-price">
+        <option value="">Prix max (€)</option>
+        <option value="0-50000">0 - 50 000 €</option>
+        <option value="50000-80000">50 000 - 80 000 €</option>
+        <option value="80000-120000">80 000 - 120 000 €</option>
+        <option value="120000+">120 000+ €</option>
+      </select>
+      <select id="filter-accel">
+        <option value="">0-100 km/h (s)</option>
+        <option value="0-4">0 - 4s</option>
+        <option value="4-5">4 - 5s</option>
+        <option value="5-6">5 - 6s</option>
+        <option value="6+">6s+</option>
+      </select>
+      <button id="reset-filters" class="btn-small">Réinitialiser</button>
+    </div>
+    <div id="car-grid"></div>
+  </section>
+
+  <section id="comparator">
+    <h2>Comparateur de Voitures</h2>
+    <div class="comparator">
+      <div class="comparator-selects">
+        <select id="car-select-1">
+          <option value="">Sélectionner voiture 1</option>
+        </select>
+        <select id="car-select-2">
+          <option value="">Sélectionner voiture 2</option>
+        </select>
+      </div>
+      <button id="compare-btn" class="btn">Comparer</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>À propos</h3>
+        <p>RevSpec est votre comparateur ultime pour les voitures sportives. Découvrez les performances, spécifications et historique des meilleures sportives du marché.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="#hero">Accueil</a></li>
+          <li><a href="#cars">Voitures</a></li>
+          <li><a href="#comparator">Comparateur</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Nos Collections</h3>
+        <ul>
+          <li><a href="pages-voitures/voiture-m4-csl-2022.html">BMW M4 CSL</a></li>
+          <li><a href="pages-voitures/voiture-m5-2016.html">BMW M5</a></li>
+          <li><a href="pages-voitures/voiture-m3-2022.html">BMW M3</a></li>
+          <li><a href="pages-voitures/voiture-rs5-2016.html">Audi RS5</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Légal</h3>
+        <ul>
+          <li><a href="#">Conditions d'utilisation</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 RevSpec – Comparateur de performances automobiles. Tous droits réservés.</p>
+      <div class="footer-links">
+        <span>Conçu avec <span style="color: #f5576c;">♥</span> par une passion pour l'automobile</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

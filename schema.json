@@ -1,0 +1,118 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://revspec.fr/#website",
+      "name": "RevSpec",
+      "url": "https://revspec.fr/",
+      "inLanguage": "fr-FR",
+      "description": "Comparateur de performances automobiles avec historique des versions et fiches techniques.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://revspec.fr/?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://revspec.fr/#organization",
+      "name": "RevSpec",
+      "url": "https://revspec.fr/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://revspec.fr/assets/images/voitures/r35.jpg"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://revspec.fr/index.html#collection",
+      "url": "https://revspec.fr/index.html",
+      "name": "Comparateur de performances automobiles",
+      "isPartOf": {
+        "@id": "https://revspec.fr/#website"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Voitures sportives"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Fiches techniques des voitures",
+        "numberOfItems": 8,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://revspec.fr/pages-voitures/voiture-m4-csl-2022.html",
+            "name": "BMW M4 CSL 2022"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://revspec.fr/pages-voitures/voiture-m5-2016.html",
+            "name": "BMW M5 2016"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://revspec.fr/pages-voitures/voiture-m3-2022.html",
+            "name": "BMW M3 2022"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://revspec.fr/pages-voitures/voiture-rs5-2016.html",
+            "name": "Audi RS5 2016"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "url": "https://revspec.fr/pages-voitures/voiture-rs3-2022.html",
+            "name": "Audi RS3 2022"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "url": "https://revspec.fr/pages-voitures/voiture-skyline-r34.html",
+            "name": "Nissan Skyline R34"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "url": "https://revspec.fr/pages-voitures/voiture-gtr-r35.html",
+            "name": "Nissan GTR R35"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "url": "https://revspec.fr/pages-voitures/voiture-megane-rs-2010.html",
+            "name": "Renault Megane RS 2010"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://revspec.fr/index.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Que permet RevSpec ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RevSpec permet de comparer la puissance, le 0-100 km/h, la vitesse maximale et le poids des voitures sportives."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les fiches incluent-elles l'histoire des versions ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, chaque fiche contient un court resume historique et une retrospective des generations du modele."
+          }
+        }
+      ]
+    }
+  ]
+}

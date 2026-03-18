@@ -1,0 +1,47 @@
+{
+  "site": {
+    "title": "RevSpec",
+    "description": "Comparateur de performances automobiles",
+    "logo": "🏁",
+    "footer": "© 2026 RevSpec – Comparateur de performances automobiles"
+  },
+  "theme": {
+    "colors": {
+      "primary": "#e74c3c",
+      "secondary": "#2c3e50",
+      "success": "#28a745",
+      "warning": "#f39c12"
+    },
+    "darkMode": {
+      "enabled": true,
+      "default": false
+    }
+  },
+  "slider": {
+    "autoplay": true,
+    "interval": 5000,
+    "transition": "fade"
+  },
+  "features": {
+    "comparator": true,
+    "search": true,
+    "favorites": true,
+    "lazyLoading": true,
+    "smoothScroll": true
+  },
+  "responsive": {
+    "breakpoints": {
+      "mobile": 480,
+      "tablet": 768,
+      "desktop": 1024
+    }
+  },
+  "performance": {
+    "weights": {
+      "power": 0.30,
+      "acceleration": 0.30,
+      "topSpeed": 0.25,
+      "weight": 0.15
+    }
+  }
+}

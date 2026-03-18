@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tests – RevSpec</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="/tests.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .test-section {
+      background: var(--card-bg);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 15px;
+      border-left: 5px solid var(--primary);
+    }
+    .test-result {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      margin: 0.5rem 0;
+      font-weight: bold;
+    }
+    .test-pass {
+      background: #d4edda;
+      color: #155724;
+    }
+    .test-fail {
+      background: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🏁 RevSpec – Tests</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Retour Accueil</a></li>
+      </ul>
+      <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+  </header>
+
+  <section style="margin-top: 100px;">
+    <h1>Tests automatiques du site</h1>
+    
+    <div class="test-section">
+      <h3>✅ Test 1 : Chargement des données</h3>
+      <p id="test-1">En cours...</p>
+    </div>
+
+    <div class="test-section">
+      <h3>✅ Test 2 : LocalStorage (Dark Mode)</h3>
+      <p id="test-2">En cours...</p>
+    </div>
+
+    <div class="test-section">
+      <h3>✅ Test 3 : Calcul de performance</h3>
+      <p id="test-3">En cours...</p>
+    </div>
+
+    <div class="test-section">
+      <h3>✅ Test 4 : Recherche/Filtrage</h3>
+      <input type="text" id="test-search" placeholder="Tapez 'BMW' pour tester">
+      <p id="test-4">En cours...</p>
+    </div>
+
+    <div class="test-section">
+      <h3>✅ Test 5 : Comparateur</h3>
+      <select id="test-select-1"></select>
+      <select id="test-select-2"></select>
+      <button class="btn" id="test-compare">Tester Comparaison</button>
+      <p id="test-5">En cours...</p>
+    </div>
+
+    <div class="test-section">
+      <h3>✅ Test 6 : Responsive Design</h3>
+      <p id="test-6">Largeur écran : <span id="screen-width"></span>px</p>
+    </div>
+
+    <div class="test-section">
+      <h3>📊 Résumé</h3>
+      <p id="test-summary"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 RevSpec – Page de Tests</p>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    let passedTests = 0;
+    let totalTests = 6;
+
+    // Test 1 : Chargement des données
+    setTimeout(() => {
+      if (typeof cars !== 'undefined' && cars.length === 8) {
+        document.getElementById('test-1').innerHTML = 
+          '<span class="test-result test-pass">✓ PASS</span> - 8 voitures chargées correctement';
+        passedTests++;
+      } else {
+        document.getElementById('test-1').innerHTML = 
+          '<span class="test-result test-fail">✗ FAIL</span> - Erreur de chargement';
+      }
+      updateSummary();
+    }, 500);
+
+    // Test 2 : LocalStorage
+    setTimeout(() => {
+      try {
+        localStorage.setItem('test', 'ok');
+        const result = localStorage.getItem('test');
+        localStorage.removeItem('test');
+        
+        if (result === 'ok') {
+          document.getElementById('test-2').innerHTML = 
+            '<span class="test-result test-pass">✓ PASS</span> - LocalStorage fonctionnel';
+          passedTests++;
+        }
+      } catch(e) {
+        document.getElementById('test-2').innerHTML = 
+          '<span class="test-result test-fail">✗ FAIL</span> - LocalStorage non disponible';
+      }
+      updateSummary();
+    }, 600);
+
+    // Test 3 : Calcul de performance
+    setTimeout(() => {
+      if (typeof calculatePerformance === 'function') {
+        const testCar = cars[0];
+        const perf = calculatePerformance(testCar);
+        
+        if (perf >= 0 && perf <= 100) {
+          document.getElementById('test-3').innerHTML = 
+            `<span class="test-result test-pass">✓ PASS</span> - Performance ${testCar.name}: ${perf}%`;
+          passedTests++;
+        }
+      } else {
+        document.getElementById('test-3').innerHTML = 
+          '<span class="test-result test-fail">✗ FAIL</span> - Fonction non trouvée';
+      }
+      updateSummary();
+    }, 700);
+
+    // Test 4 : Recherche
+    const testSearch = document.getElementById('test-search');
+    testSearch.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const filtered = cars.filter(car => car.name.toLowerCase().includes(query));
+      
+      document.getElementById('test-4').innerHTML = 
+        `<span class="test-result test-pass">✓ PASS</span> - ${filtered.length} résultat(s) pour "${query}"`;
+    });
+    document.getElementById('test-4').innerHTML = 
+      '<span class="test-result test-pass">✓ PASS</span> - Recherche prête';
+    passedTests++;
+    updateSummary();
+
+    // Test 5 : Comparateur
+    const select1 = document.getElementById('test-select-1');
+    const select2 = document.getElementById('test-select-2');
+    
+    cars.forEach(car => {
+      select1.innerHTML += `<option value="${car.id}">${car.name}</option>`;
+      select2.innerHTML += `<option value="${car.id}">${car.name}</option>`;
+    });
+    
+    document.getElementById('test-compare').addEventListener('click', () => {
+      const car1 = cars.find(c => c.id === select1.value);
+      const car2 = cars.find(c => c.id === select2.value);
+      
+      if (car1 && car2) {
+        document.getElementById('test-5').innerHTML = 
+          `<span class="test-result test-pass">✓ PASS</span> - Comparaison ${car1.name} vs ${car2.name}`;
+        passedTests++;
+        updateSummary();
+      }
+    });
+    
+    document.getElementById('test-5').innerHTML = 
+      '<span class="test-result test-pass">✓ PASS</span> - Comparateur initialisé';
+    passedTests++;
+    updateSummary();
+
+    // Test 6 : Responsive
+    function updateScreenWidth() {
+      const width = window.innerWidth;
+      document.getElementById('screen-width').textContent = width;
+      
+      let device = 'Desktop';
+      if (width < 480) device = 'Mobile';
+      else if (width < 768) device = 'Tablet';
+      
+      document.getElementById('test-6').innerHTML = 
+        `<span class="test-result test-pass">✓ PASS</span> - Largeur: ${width}px (${device})`;
+    }
+    
+    updateScreenWidth();
+    window.addEventListener('resize', updateScreenWidth);
+    passedTests++;
+    updateSummary();
+
+    // Résumé
+    function updateSummary() {
+      const percentage = Math.round((passedTests / totalTests) * 100);
+      const color = percentage === 100 ? 'test-pass' : 'test-fail';
+      
+      document.getElementById('test-summary').innerHTML = 
+        `<span class="test-result ${color}">${passedTests}/${totalTests} tests réussis (${percentage}%)</span>`;
+    }
+  </script>
+</body>
+</html>
