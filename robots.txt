@@ -5,4 +5,4 @@ Allow: /
 Disallow: /START.html
 Disallow: /tests.html
 
-Sitemap: https://revspec.fr/sitemap.xml
+Sitemap: https://revspec.marcla.fr/sitemap.xml
